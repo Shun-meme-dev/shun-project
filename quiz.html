@@ -10,22 +10,22 @@
             padding-bottom: 10px; 
            }
         .back-btn { display: inline-block;
-                   margin-bottom: 20px; 
-                   text-decoration: none; 
-                   color: #0284c7;
-                   font-weight: bold;
+                    margin-bottom: 20px; 
+                    text-decoration: none; 
+                    color: #0284c7;
+                    font-weight: bold;
                   }
         .quiz-container { background: #f8fafc; 
-                         padding: 30px; 
-                         border-radius: 12px;
-                         border: 1px solid #e2e8f0; 
-                        }
+                           padding: 30px; 
+                           border-radius: 12px;
+                           border: 1px solid #e2e8f0; 
+                         }
         .question-box { margin-bottom: 25px; 
                        padding-bottom: 15px; 
                        border-bottom: 1px solid #e2e8f0; 
                       }
         .question-box p { font-weight: 600; 
-                         color: #0f172a; 
+                          color: #0f172a; 
                         }
         .options label { display: block; 
                         margin: 8px 0; 
@@ -101,12 +101,11 @@
                 if (selected && parseInt(selected.value)===item.correct) score++;
             });
             document.getElementById('quiz-result').innerText=`Kết quả của bạn: ${score} / 20 câu đúng! (${score >= 15 ? 'Xuất sắc! ' : score >= 10 ? 'Khá tốt! ' : 'Cần ôn tập thêm! '})`;
-            <script>
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-    }
-</script>
+        }
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
         }
     </script>
 </body>
-  </html>
+</html>
