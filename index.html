@@ -6,9 +6,9 @@
     <title>An Toàn Không Gian Mạng - Tổ 3 STEM Tin Học</title>
     <style>
         :root {
-            --primary-dark: #0f172a; /* Xanh đen sậm */
-            --accent-blue: #0284c7;  /* Xanh da trời */
-            --bg-light: #ffffff;     /* Nền trắng chủ đạo */
+            --primary-dark: #0f172a; 
+            --accent-blue: #0284c7;  
+            --bg-light: #ffffff;    
             --bg-secondary: #f8fafc;
             --text-main: #334155;
             --border-color: #e2e8f0;
@@ -29,7 +29,7 @@
             min-height: 100vh;
         }
 
-        /* --- THANH MENU TRÊN & SIDEBAR (Giống Gemini) --- */
+        <!-- MENU -->
         .top-navbar {
             position: fixed;
             top: 0;
@@ -62,7 +62,6 @@
             color: var(--primary-dark);
         }
 
-        /* Sidebar ẩn/hiện */
         aside {
             width: var(--sidebar-width);
             background-color: var(--bg-secondary);
@@ -125,7 +124,6 @@
         }
         .settings-item:hover { background-color: #e2e8f0; }
 
-        /* --- MAIN CONTENT --- */
         main {
             margin-top: 60px;
             margin-left: var(--sidebar-width);
@@ -180,7 +178,6 @@
         }
         .btn:hover { opacity: 0.9; }
 
-        /* AI Image */
         .ai-image-container {
             text-align: center;
             margin: 30px 0;
@@ -206,7 +203,6 @@
         }
         .number-three { font-size: 70px; color: #f43f5e; }
 
-        /* Password Checker */
         .password-checker-box {
             background: var(--bg-secondary);
             padding: 25px;
@@ -254,18 +250,18 @@
 </head>
 <body>
 
-    <!-- THANH MENU TRÊN CÙNG -->
+    <!-- MENU -->
     <header class="top-navbar">
         <button class="menu-btn" onclick="toggleSidebar()">☰</button>
         <div class="top-title">An Toàn Không Gian Mạng - STEM Tin Học</div>
     </header>
 
-    <!-- SIDEBAR BÊN TRÁI -->
+    <!-- SIDEBAR -->
     <aside id="sidebar">
         <ul class="sidebar-menu">
-            <li><a href="index.html" class="active">🏠 Trang chủ</a></li>
-            <li><a href="thanhvien.html">👥 Thành Viên</a></li>
-            <li><a href="thamkhao.html">🔗 Tham khảo (Video & Ảnh)</a></li>
+            <li><a href="index.html" class="active"> Trang chủ</a></li>
+            <li><a href="thanhvien.html"target="_blank"> Thành Viên</a></li>
+            <li><a href="thamkhao.html"target="_blank"> Tham khảo </a></li>
         </ul>
         <div class="sidebar-footer">
             <a href="#settings" class="settings-item" onclick="alert('Mục Cài đặt hệ thống')">
@@ -273,8 +269,7 @@
             </a>
         </div>
     </aside>
-
-    <!-- NỘI DUNG CHÍNH TRANG CHỦ -->
+    
     <main id="main-content">
         <h1>An Toàn Không Gian Mạng - Bảo Vệ Chính Mình Trong Kỷ Nguyên Số</h1>
         
@@ -294,8 +289,7 @@
             "An toàn không gian mạng bắt nguồn từ sự cẩn trọng và ý thức tự bảo vệ của mỗi người dùng." — Chuyên gia An ninh mạng.
         </blockquote>
 
-        <!-- Nút chuyển sang trang video/hình ảnh thực tế (target="_blank") -->
-        <a href="thamkhao.html" target="_blank" class="btn">Xem Hình Ảnh & Video Thực Tế (Trang Tham Khảo)</a>
+        <a href="thamkhao.html" target="_blank" class="btn">Xem Hình Ảnh & Video Thực Tế ( Tham Khảo)</a>
 
         <h2>3. Phân loại hành vi không an toàn và ví dụ</h2>
         <ul>
@@ -307,7 +301,6 @@
                 <br><em>Ví dụ:</em> Lập nhóm bôi nhọ bạn bè trên mạng xã hội.</li>
         </ul>
 
-        <!-- AI Image với số 3 -->
         <div class="ai-image-container">
             <div class="ai-image-placeholder">
                 <span>Không gian mạng</span>
@@ -317,18 +310,15 @@
         <h2>4. Tài liệu tham khảo và nguồn uy tín</h2>
         <p>Nội dung được tổng hợp từ Cổng Thông tin điện tử Chính phủ và Cục An toàn thông tin.</p>
         <ul>
-            <li><a href="https://ais.gov.vn" target="_blank">Cục An toàn thông tin - Bộ TT&TT</a></li>
-            <li><a href="https://vncert.vn" target="_blank">Trung tâm VNCERT/CC</a></li>
+            <li><a href="https://www.unicef.org/vietnam/vi/nhung-dieu-can-biet-de-toan-trong-khong-gian-mang" target="_blank"> An toàn thông tin-UNICEF</a></li>
+            <li><a>https://m.youtube.com/watch?v=Q6ye2JtslVs"target="_blank">Video an toàn không gian mạng</a></li>
         </ul>
 
-        <!-- Nút chuyển sang trang hỏi đáp / trắc nghiệm -->
         <div style="margin: 30px 0;">
             <h3>Kiểm tra kiến thức</h3>
-            <p>Nhấn vào nút dưới đây để chuyển sang trang làm 20 câu hỏi trắc nghiệm chấm điểm:</p>
-            <a href="quiz.html" class="btn">Chuyển đến Trang Hỏi Đáp & Trắc Nghiệm</a>
-        </div>
-
-        <!-- Kiểm tra mật khẩu -->
+            <p>Nhấn vào nút dưới đây để chuyển đến câu hỏi trắc nghiệm :):</p>
+            <a href="quiz.html"target="_blank" class="btn">Chuyển đến Trang Hỏi Đáp & Trắc Nghiệm</a>
+   
         <div class="password-checker-box">
             <h3>Công cụ Kiểm tra Độ mạnh Mật khẩu</h3>
             <p>Nhập mật khẩu để hệ thống đánh giá:</p>
@@ -343,7 +333,6 @@
             <a href="index.html" class="btn" style="background-color: #64748b;">Quay lại đầu trang ⬆️</a>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <p>Tổ 3's products</p>
             <p>Make by Shun 🩷</p>
