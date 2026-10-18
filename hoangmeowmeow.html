@@ -5,15 +5,49 @@
     <title>Hỏi Đáp & Trắc Nghiệm An Toàn Mạng</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; padding: 40px; background: #ffffff; color: #334155; max-width: 900px; margin: auto; }
-        h1 { color: #0f172a; border-bottom: 2px solid #0f172a; padding-bottom: 10px; }
-        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #0284c7; font-weight: bold; }
-        .quiz-container { background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .question-box { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
-        .question-box p { font-weight: 600; color: #0f172a; }
-        .options label { display: block; margin: 8px 0; cursor: pointer; padding: 8px; border-radius: 6px; }
-        .options label:hover { background: #e2e8f0; }
-        .btn { background-color: #0284c7; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; }
-        #quiz-result { font-size: 20px; font-weight: bold; margin-top: 20px; color: #0f172a; }
+        h1 { color: #0f172a;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 10px; 
+           }
+        .back-btn { display: inline-block;
+                   margin-bottom: 20px; 
+                   text-decoration: none; 
+                   color: #0284c7;
+                   font-weight: bold;
+                  }
+        .quiz-container { background: #f8fafc; 
+                         padding: 30px; 
+                         border-radius: 12px;
+                         border: 1px solid #e2e8f0; 
+                        }
+        .question-box { margin-bottom: 25px; 
+                       padding-bottom: 15px; 
+                       border-bottom: 1px solid #e2e8f0; 
+                      }
+        .question-box p { font-weight: 600; 
+                         color: #0f172a; 
+                        }
+        .options label { display: block; 
+                        margin: 8px 0; 
+                        cursor: pointer; 
+                        padding: 8px; 
+                        border-radius: 6px; 
+                       }
+        .options label:hover { background: #e2e8f0; 
+                       }
+        .btn { background-color: #0284c7; color: white; 
+              padding: 12px 24px; 
+              border: none; 
+              border-radius: 8px; 
+              cursor: pointer; 
+              font-size: 16px; 
+              font-weight: 600; 
+             }
+        #quiz-result { font-size: 20px; 
+                      font-weight: bold; 
+                      margin-top: 20px; 
+                      color: #0f172a; 
+                }
     </style>
 </head>
 <body>
@@ -67,6 +101,11 @@
                 if (selected && parseInt(selected.value)===item.correct) score++;
             });
             document.getElementById('quiz-result').innerText=`Kết quả của bạn: ${score} / 20 câu đúng! (${score >= 15 ? 'Xuất sắc! ' : score >= 10 ? 'Khá tốt! ' : 'Cần ôn tập thêm! '})`;
+            <script>
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
         }
     </script>
 </body>
