@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hỏi Đáp & Trắc Nghiệm An Toàn Mạng</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; padding: 40px; background: #ffffff; color: #334155; max-width: 900px; margin: auto; }
+        h1 { color: #0f172a; border-bottom: 2px solid #0f172a; padding-bottom: 10px; }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #0284c7; font-weight: bold; }
+        .quiz-container { background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .question-box { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+        .question-box p { font-weight: 600; color: #0f172a; }
+        .options label { display: block; margin: 8px 0; cursor: pointer; padding: 8px; border-radius: 6px; }
+        .options label:hover { background: #e2e8f0; }
+        .btn { background-color: #0284c7; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; }
+        #quiz-result { font-size: 20px; font-weight: bold; margin-top: 20px; color: #0f172a; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn"> Quay lại Trang chủ</a>
+    
+    <div class="quiz-container">
+        <h1>Trắc Nghiệm An Toàn Không Gian Mạng (20 Câu)</h1>
+        <p>Hoàn thành các câu hỏi dưới đây để hệ thống chấm điểm trực tiếp:</p>
+        <div id="quiz-form"></div>
+        <button class="btn" onclick="submitQuiz()">Nộp bài & Chấm điểm</button>
+        <div id="quiz-result"></div>
+    </div>
+
+    <script>
+        const quizData = [
+            { q: "1. Hành vi nào sau đây là không an toàn trên mạng?", options: ["Đặt mật khẩu mạnh", "Chia sẻ mật khẩu cho người lạ", "Cập nhật phần mềm thường xuyên", "Đăng xuất tài khoản khi dùng máy chung"], correct: 1 },
+            { q: "2. Phishing là gì?", options: ["Một loại cá biển", "Hình thức lừa đảo đánh cắp thông tin", "Phần mềm diệt virus", "Trang web học tập trực tuyến"], correct: 1 },
+            { q: "3. Mật khẩu nào được coi là mạnh nhất?", options: ["123456", "nguyenvanA", "P@ssw0rd!2026#Secure", "ngaythinh_123"], correct: 2 },
+            { q: "4. Cơ quan nào quản lý chính về an toàn thông tin tại Việt Nam?", options: ["Bộ Giao thông Vận tải", "Cục An toàn thông tin (Bộ TT&TT)", "Bộ Y tế", "Bộ Xây dựng"], correct: 1 },
+            { q: "5. Khi nhận được tin nhắn trúng thưởng từ link lạ, bạn nên làm gì?", options: ["Bấm vào ngay", "Nhập thông tin nhận thưởng", "Xóa và không bấm vào link", "Chia sẻ cho bạn bè"], correct: 2 },
+            { q: "6. Mã độc tống tiền có tên tiếng Anh là gì?", options: ["Adware", "Spyware", "Ransomware", "Trojan"], correct: 2 },
+            { q: "7. Đâu là hành vi thể hiện văn hóa ứng xử trên mạng?", options: ["Bôi nhọ người khác", "Tôn trọng quyền riêng tư", "Phát tán tin giả", "Chửi bới trong bình luận"], correct: 1 },
+            { q: "8. Xác thực 2 bước (2FA) giúp ích gì?", options: ["Làm chậm máy", "Tăng cường bảo mật tài khoản", "Tốn dung lượng", "Không có tác dụng gì"], correct: 1 },
+            { q: "9. Wi-Fi công cộng miễn phí có nguy cơ gì?", options: ["Tốc độ luôn cực nhanh", "Dễ bị kẻ xấu đánh cắp dữ liệu", "Không bao giờ bị lỗi", "An toàn tuyệt đối"], correct: 1 },
+            { q: "10. Thông tin cá nhân nào <i>KHÔNG</i> nên chia sẻ công khai?", options: ["Sở thích nghe nhạc", "Số căn cước công dân", "Màu sắc yêu thích", "Đội bóng yêu thích"], correct: 1 },
+            { q: "11. VPN được sử dụng để làm gì?", options: ["Tăng dung lượng ổ cứng", "Bảo mật kết nối mạng riêng tư", "Chơi game mượt hơn", "Diệt virus máy tính"], correct: 1 },
+            { q: "12. Đâu là dấu hiệu của một trang web giả mạo?", options: ["Địa chỉ URL lạ, sai chính tả", "Có chứng chỉ SSL màu xanh", "Giao diện chính thống", "Được cấp phép công khai"], correct: 0 },
+            { q: "13. Khi phát hiện bạn bè bị kẻ xấu hack Facebook, bạn nên báo gì?", options: ["Cười chê", "Nhắn tin mượn tiền", "Cảnh báo mọi người và báo cáo tài khoản", "Im lặng"], correct: 2 },
+            { q: "14. Phần mềm diệt virus có tác dụng gì?", options: ["Tăng tốc độ mạng", "Phát hiện và tiêu diệt mã độc", "Giúp máy tính sạc pin nhanh", "Tự động viết code"], correct: 1 },
+            { q: "15. Đâu là hành vi vi phạm pháp luật trên không gian mạng?", options: ["Học lập trình", "Tấn công đánh sập website trái phép", "Xem video giải trí", "Tra cứu thông tin"], correct: 1 },
+            { q: "16. Có nên lưu mật khẩu tự động trên trình duyệt máy tính công cộng không?", options: ["Có, rất tiện lợi", "Không, rất nguy hiểm", "Tùy ý thích", "Có thể nếu vội"], correct: 1 },
+            { q: "17. Thư điện tử (Email) rác, lừa đảo thường được gọi là gì?", options: ["Spam mail", "Hot mail", "Gmail sạch", "Pro mail"], correct: 0 },
+            { q: "18. Trẻ em khi lên mạng cần có sự giám sát của ai?", options: ["Không cần ai cả", "Cha mẹ hoặc người giám hộ", "Người lạ trên mạng", "Hacker"], correct: 1 },
+            { q: "19. Kỹ thuật xã hội (Social Engineering) trong tấn công mạng nhắm vào yếu tố nào?", options: ["Lỗ hổng phần cứng", "Tâm lý con người", "Đường truyền cáp quang", "Nguồn điện"], correct: 1 },
+            { q: "20. Hành động nào góp phần làm sạch không gian mạng?", options: ["Báo cáo các trang web độc hại, lan tỏa tin tốt", "Chia sẻ tin giả chưa kiểm chứng", "Bình luận xúc phạm người khác", "Tải phần mềm lậu"], correct: 0 }
+        ];
+
+        const quizForm = document.getElementById('quiz-form');
+        quizData.forEach((item, index)=> {
+            let optionsHTML = '';
+            item.options.forEach((opt, oIndex)=> {
+                optionsHTML += `<label><input type="radio" name="q${index}" value="${oIndex}"> ${opt}</label>`;
+            });
+            quizForm.innerHTML += `<div class="question-box"><p>${item.q}</p><div class="options">${optionsHTML}</div></div>`;
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            quizData.forEach((item, index)=> {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected && parseInt(selected.value)===item.correct) score++;
+            });
+            document.getElementById('quiz-result').innerText=`Kết quả của bạn: ${score} / 20 câu đúng! (${score >= 15 ? 'Xuất sắc! ' : score >= 10 ? 'Khá tốt! ' : 'Cần ôn tập thêm! '})`;
+        }
+    </script>
+</body>
+  </html>
