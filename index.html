@@ -88,7 +88,6 @@
                 left: 0;
                 transition: transform 0.3s ease;
                 z-index: 100;
-                transform: translateX(0);
             }
 
             aside.hidden {
@@ -143,11 +142,12 @@
 
             main {
                 margin-top: 60px;
-                margin-left: var(--sidebar-width);
+                margin-left: 0;
                 flex-grow: 1;
                 padding: 40px;
                 max-width: 1200px;
                 width: 100%;
+                margin-left: auto;
                 margin-right: auto;
                 transition: margin-left 0.3s ease;
             }
@@ -325,11 +325,6 @@
                 margin-bottom: 3px;
             }
         </style>
-        <script>
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        </script>
     </head>
     <body>
         <header class="top-navbar">
@@ -337,7 +332,7 @@
             <div class="top-title">An Toàn Không Gian Mạng - STEM Tin Học</div>
         </header>
 
-        <aside id="sidebar">
+        <aside id="sidebar" class="hidden">
             <ul class="sidebar-menu">
                 <li><a href="index.html" class="active"> Trang chủ</a></li>
                 <li>
@@ -352,7 +347,7 @@
             </div>
         </aside>
 
-        <main id="main-content">
+        <main id="main-content" class="full-width">
             <h1>
                 An Toàn Không Gian Mạng - Bảo Vệ Chính Mình Trong Kỷ Nguyên Số
             </h1>
