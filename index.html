@@ -550,16 +550,15 @@
                     strength = "Trung bình";
                     color = "#f59e0b";
                 }
-                res.innerText=`Mật khẩu: ${strength}`;
-                res.style.color=color;
-                window.addEventListener('DOMContentLoaded', () => 
-                    {
-                if (localStorage.getItem('darkMode') === 'true') 
-                {
+                res.innerText = `Mật khẩu: ${strength}`;
+                res.style.color = color;
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                if (localStorage.getItem('darkMode') === 'true') {
                     document.body.classList.add('dark-mode');
                 }
-    }
-});
+            });
         </script>
     </body>
 </html>
